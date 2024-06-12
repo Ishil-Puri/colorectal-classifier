@@ -12,9 +12,8 @@ code {
     monospace;
 }
 .block{
-  /* border: 1px solid red; */
   width: 420px;
-  margin: auto;
+  margin: 30px auto 0px auto;
   > input {
     line-height: 30px;
   }

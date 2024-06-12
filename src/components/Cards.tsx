@@ -64,7 +64,7 @@ export const Cards = () => {
 const CardContainer = styled.div`
     display:flex;
     flex-flow: wrap;
-    width: 1190px;
+    width: 83%;
     margin: auto;
     margin-top:30px;
 `
