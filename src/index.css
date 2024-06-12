@@ -11,3 +11,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.block{
+  width: 300px;
+  margin: 30px auto 0px auto;
+  > input {
+    line-height: 30px;
+  }
+}
+
+.upload{
+  display: block; 
+  justify-content: space-between
+}

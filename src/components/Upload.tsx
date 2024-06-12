@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from 'axios';
 import { Button } from "@fluentui/react-components";
+import ImageUpload from './ImageUpload';
 
 interface PredictionResponse {
   predicted_class: number;
@@ -16,13 +17,11 @@ export const Upload = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
-  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const fileList = event.target.files;
-    if (fileList && fileList.length > 0) {
-      setFile(fileList[0]);
-      setError(null); // Clear previous errors
-      setPrediction(null); // Clear previous prediction
-    }
+  
+  const handleFileSelect = (selectedFile: File) => {
+    setFile(selectedFile);
+    setError(null); // Clear previous errors
+    setPrediction(null); // Clear previous prediction
   };
 
   const onSubmit = async () => {
@@ -42,7 +41,7 @@ export const Upload = () => {
     setError(null);
 
     try {
-      const response = await axios.post<PredictionResponse>('http://localhost:5001/predict', formData, {
+      const response = await axios.post<PredictionResponse>('http://localhost:5001/scoring', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
@@ -58,10 +57,13 @@ export const Upload = () => {
 
   return (
     <div>
-      <input type="file" onChange={handleFileChange} accept="image/*" />
-      <Button onClick={onSubmit} appearance="primary" disabled={!file || isLoading} title="Upload and Analyze Image">
-        {isLoading ? "Analyzing..." : "Upload and Analyze"}
-      </Button>
+      <div className="block upload">
+        <ImageUpload onFileSelect={handleFileSelect} />
+        <Button onClick={onSubmit} appearance="outline" disabled={!file || isLoading} title="Upload and Analyze Image">
+          {isLoading ? "Analyzing..." : "Analyze"}
+        </Button>
+      </div>
+      
       {error && <p>Error: {error}</p>}
       {prediction && (
         <div>
@@ -70,6 +72,8 @@ export const Upload = () => {
           <p>Conformal Reliability: {prediction.reliability}</p>
         </div>
       )}
+      
+     
     </div>
   );
-}
+};
