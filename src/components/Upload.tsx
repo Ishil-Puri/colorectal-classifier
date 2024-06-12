@@ -1,6 +1,9 @@
 import React, { useState } from "react";
+import styled from '@emotion/styled'
 import axios from 'axios';
 import { Button } from "@fluentui/react-components";
+import { useId, Label, Slider } from "@fluentui/react-components";
+import type { SliderProps } from "@fluentui/react-components";
 
 interface PredictionResponse {
   predicted_class: number;
@@ -15,6 +18,12 @@ export const Upload = () => {
   const [prediction, setPrediction] = useState<PredictionResponse | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
+
+  //slider
+  const id = useId();
+  const [sliderValue, setSliderValue] = React.useState(80);
+  const onSliderChange: SliderProps["onChange"] = (_, data) =>
+    setSliderValue(data.value);
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const fileList = event.target.files;
@@ -58,10 +67,13 @@ export const Upload = () => {
 
   return (
     <div>
-      <input type="file" onChange={handleFileChange} accept="image/*" />
-      <Button onClick={onSubmit} appearance="primary" disabled={!file || isLoading} title="Upload and Analyze Image">
-        {isLoading ? "Analyzing..." : "Upload and Analyze"}
-      </Button>
+      <div className="block upload">
+        <input type="file" onChange={handleFileChange} accept="image/*" />
+        <Button onClick={onSubmit} appearance="outline" disabled={!file || isLoading} title="Upload and Analyze Image">
+          {isLoading ? "Analyzing..." : "Upload and Analyze"}
+        </Button>
+  
+      </div>
       {error && <p>Error: {error}</p>}
       {prediction && (
         <div>
@@ -70,6 +82,26 @@ export const Upload = () => {
           <p>Conformal Reliability: {prediction.reliability}</p>
         </div>
       )}
+      <SliderContainer>
+          <Slider value={sliderValue}
+          min={0}
+          max={100}
+          onChange={onSliderChange}
+          style={{width: 'calc(100% - 80px)'}}
+          id={id}/>
+        
+          <Label >
+            {sliderValue} 
+        </Label>
+      </SliderContainer>
+     
     </div>
   );
 }
+
+
+const SliderContainer = styled.div`
+  width: 490px;
+  margin: auto;
+  margin-top: 30px;
+`
