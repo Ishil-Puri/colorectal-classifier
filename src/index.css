@@ -12,7 +12,7 @@ code {
     monospace;
 }
 .block{
-  width: 420px;
+  width: 300px;
   margin: 30px auto 0px auto;
   > input {
     line-height: 30px;
@@ -20,6 +20,6 @@ code {
 }
 
 .upload{
-  display: flex; 
+  display: block; 
   justify-content: space-between
 }

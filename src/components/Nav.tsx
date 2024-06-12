@@ -117,7 +117,7 @@ export const VerticalNav = (props: Partial<NavDrawerProps>) => {
   return (
     <div className={styles.root}>
       <NavDrawer
-        defaultSelectedValue="2"
+        defaultSelectedValue="1"
         defaultSelectedCategoryValue="1"
         open={isOpen}
         type={type}
@@ -128,85 +128,17 @@ export const VerticalNav = (props: Partial<NavDrawerProps>) => {
           </NavDrawerHeaderNav>
         </NavDrawerHeader>
         <NavDrawerBody>
-          <NavSectionHeader>Home</NavSectionHeader>
-          <NavItem href="https://www.bing.com" icon={<Dashboard />} value="1">
-            Dashboard
+          <NavSectionHeader>Dashboard</NavSectionHeader>
+          <NavItem href="/" icon={<Dashboard />} value="1">
+            Performance
           </NavItem>
-          <NavItem
-            href="https://www.bing.com"
-            icon={<Announcements />}
-            value="2"
-          >
-            Announcements
-          </NavItem>
-          <NavItem
-            href="https://www.bing.com"
-            icon={<EmployeeSpotlight />}
-            value="3"
-          >
-            Employee Spotlight
-          </NavItem>
-          <NavItem icon={<Search />} href="https://www.bing.com" value="4">
-            Profile Search
-          </NavItem>
-          <NavItem
-            icon={<PerformanceReviews />}
-            href="https://www.bing.com"
-            value="5"
-          >
-            Performance Reviews
-          </NavItem>
-
-
-          <NavSectionHeader>Benefits</NavSectionHeader>
-          <NavItem icon={<HealthPlans />} value="10">
-            Health Plans
-          </NavItem>
-          <NavCategory value="11">
-            <NavCategoryItem icon={<Person />} value="12">
-              Retirement
-            </NavCategoryItem>
-            <NavSubItemGroup>
-              <NavSubItem href="https://www.bing.com" value="13">
-                Plan Information
-              </NavSubItem>
-              <NavSubItem href="https://www.bing.com" value="14">
-                Fund Performance
-              </NavSubItem>
-            </NavSubItemGroup>
-          </NavCategory>
-
-          <NavSectionHeader>Learning</NavSectionHeader>
-          <NavItem icon={<TrainingPrograms />} value="15">
-            Training Programs
-          </NavItem>
-          <NavCategory value="16">
-            <NavCategoryItem icon={<CareerDevelopment />}>
-              Career Development
-            </NavCategoryItem>
-            <NavSubItemGroup>
-              <NavSubItem href="https://www.bing.com" value="17">
-                Career Paths
-              </NavSubItem>
-              <NavSubItem href="https://www.bing.com" value="18">
-                Planning
-              </NavSubItem>
-            </NavSubItemGroup>
-          </NavCategory>
-
-          <NavSectionHeader>Analytics</NavSectionHeader>
-          <NavItem target="_blank" icon={<Analytics />} value="19">
-            Workforce Data
-          </NavItem>
-          <NavItem href="https://www.bing.com" icon={<Reports />} value="20">
-            Reports
-          </NavItem>
+          
         </NavDrawerBody>
         <NavDrawerFooter>
-          <NavItem value="21" href="https://www.bing.com" icon={<Person />}>
+          <NavItem value="2" href="/" icon={<Person />}>
             Profile
           </NavItem>
-          <NavItem icon={<Settings />} href="https://www.bing.com" value="24">
+          <NavItem icon={<Settings />} href="/" value="3">
             App Settings
           </NavItem>
         </NavDrawerFooter>

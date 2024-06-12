@@ -39,15 +39,6 @@ export const Cards = () => {
         { title: 'Card Title',  img: 'test-img.png' },
         { title: 'Card Title',  img: 'test-img.png' },
         { title: 'Card Title',  img: 'test-img.png' },
-        { title: 'Card Title',  img: 'test-img.png' },
-        { title: 'Card Title',  img: 'test-img.png' },
-        { title: 'Card Title',  img: 'test-img.png' },
-        { title: 'Card Title',  img: 'test-img.png' },
-        { title: 'Card Title',  img: 'test-img.png' },
-        { title: 'Card Title',  img: 'test-img.png' },
-        { title: 'Card Title',  img: 'test-img.png' },
-        { title: 'Card Title',  img: 'test-img.png' },
-
       ];
   return (
     <CardContainer>
@@ -72,9 +63,10 @@ const Card = styled.div`
     width: 100px;
     height: 100px;
     padding: 10px;
-    border: 1px solid #aeaeae;
-    border-radius: 3px;
-    margin: 5px;
+    border: 3px solid #eeeeee;
+    border-radius: 10px;
+    margin: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
 
     img {
         width: 70px;
@@ -85,6 +77,8 @@ const Card = styled.div`
     :hover{
         cursor: pointer;
         box-shadow: 8px 7px 7px -5px rgba(0,0,0,0.36);
+        transform: scale(1.1) translate(0%, 0%);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     }
 `
 

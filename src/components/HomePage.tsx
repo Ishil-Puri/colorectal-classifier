@@ -1,9 +1,10 @@
 import React from "react";
 import styled from '@emotion/styled'
 import { Upload } from "./Upload";
-import { Title2, Text } from "@fluentui/react-components";
+import { Title2, Text, Title3 } from "@fluentui/react-components";
 import { Cards } from "./Cards";
 import { VerticalNav } from "./Nav";
+import { SliderComponent } from "./Slider";
 
 export const HomePage = () => {
 
@@ -18,9 +19,12 @@ export const HomePage = () => {
             <Title2>
             Colorectal Cancer Detection
             </Title2> 
-            <Text style={{marginTop: 4}}>Azure ML + TensorFlow</Text>
+            <Text style={{marginTop: 4}}>Azure ML + TensorFlow built w/ React + Flask + Fluent2</Text>
           </div>
         <Upload />
+        <div style={{height: 30}}></div>
+        <Title3>Conformal Prediction</Title3>
+        <SliderComponent/>
         <Cards />
       </Blade>
     
