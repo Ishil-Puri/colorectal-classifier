@@ -7,6 +7,7 @@ import { VerticalNav } from "./Nav";
 import { SliderComponent } from "./Slider";
 
 export const HomePage = () => {
+  const [sliderValue, setSliderValue] = React.useState(0.9);
 
   return (
     <div className="App">
@@ -24,8 +25,8 @@ export const HomePage = () => {
         <Upload />
         <div style={{height: 30}}></div>
         <Title3>Conformal Prediction</Title3>
-        <SliderComponent/>
-        <Cards />
+        <SliderComponent sliderValue={sliderValue} setSliderValue={setSliderValue}/>
+        <Cards threshold={sliderValue}/>
       </Blade>
     
     </div>

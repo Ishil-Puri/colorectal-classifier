@@ -3,11 +3,15 @@ import React from "react";
 import { useId, Label, Slider } from "@fluentui/react-components";
 import type { SliderProps } from "@fluentui/react-components";
 
+interface SliderComponentProps {
+  sliderValue: number;
+  setSliderValue: (value: number) => void;
+}
 
-export const SliderComponent = () => {
+export const SliderComponent: React.FC<SliderComponentProps> = ({ sliderValue, setSliderValue }) => {
     //slider
     const id = useId();
-    const [sliderValue, setSliderValue] = React.useState(0.9);
+
     const onSliderChange: SliderProps["onChange"] = (_, data) =>
     setSliderValue(data.value);
     return (
