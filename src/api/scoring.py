@@ -8,11 +8,6 @@ CORS(app)  # Handle CORS if accessing from different origins
 print("tf_version: " + tf.__version__)
 model = tf.keras.models.load_model('./colo_model2.h5')
 
-
-@app.route('/')
-def home():
-    return 'Hello, World!'
-
 class_names = {0: 'tumour epithelium', 1: 'simple stroma',
             2: 'complex stroma', 3: 'immune cell conglomerates',
             4: 'debris and mucus', 5: 'mucosal glands',
